@@ -1,3 +1,5 @@
+_This fork's only change is in `src/nimconfig.h`, to increase allocated memory and enable logs. Notice that CONFIG_BT_NIMBLE_MAX_CONNECTIONS is not just about the number of connections, but about the number of simulatenous BLE "activities": connecting, disconnecting, scanning, advertizing..._
+
 [![Release Version](https://img.shields.io/github/release/h2zero/NimBLE-Arduino.svg?style=plastic)
 ![Release Date](https://img.shields.io/github/release-date/h2zero/NimBLE-Arduino.svg?style=plastic)](https://github.com/h2zero/NimBLE-Arduino/releases/latest/)
 <br/>
