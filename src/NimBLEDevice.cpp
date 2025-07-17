@@ -915,9 +915,11 @@ bool NimBLEDevice::init(const std::string& deviceName) {
 #   endif
 
 #   if CONFIG_BTDM_BLE_SCAN_DUPL
-        bt_cfg.normal_adv_size         = m_scanDuplicateSize;
-        bt_cfg.scan_duplicate_type     = m_scanFilterMode;
+        bt_cfg.normal_adv_size     = m_scanDuplicateSize;
+        bt_cfg.scan_duplicate_type = m_scanFilterMode;
+#    if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 0, 0)
         bt_cfg.dup_list_refresh_period = m_scanDuplicateResetTime;
+#    endif
 #   elif CONFIG_BT_LE_SCAN_DUPL
         bt_cfg.ble_ll_rsp_dup_list_count = m_scanDuplicateSize;
         bt_cfg.ble_ll_adv_dup_list_count = m_scanDuplicateSize;
@@ -975,7 +977,7 @@ bool NimBLEDevice::init(const std::string& deviceName) {
         ble_hs_cfg.sm_io_cap         = BLE_HS_IO_NO_INPUT_OUTPUT;
         ble_hs_cfg.sm_bonding        = 0;
         ble_hs_cfg.sm_mitm           = 0;
-        ble_hs_cfg.sm_sc             = 1;
+        ble_hs_cfg.sm_sc             = 0;
         ble_hs_cfg.sm_our_key_dist   = BLE_SM_PAIR_KEY_DIST_ENC;
         ble_hs_cfg.sm_their_key_dist = BLE_SM_PAIR_KEY_DIST_ENC;
 # if MYNEWT_VAL(BLE_LL_CFG_FEAT_LL_PRIVACY)
