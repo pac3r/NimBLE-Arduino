@@ -21,7 +21,8 @@
 
 /** @brief Un-comment to change the number of simultaneous connections (esp controller max is 9) */
 // #define CONFIG_BT_NIMBLE_MAX_CONNECTIONS 3
-#define CONFIG_BT_NIMBLE_MAX_CONNECTIONS 7
+// See https://github.com/pac3r/AymStrideLight/issues/4
+#define CONFIG_BT_NIMBLE_MAX_CONNECTIONS 5
 
 /** @brief Un-comment to enable storing the timestamp when an attribute value is updated\n
  *  This allows for checking the last update time using getTimeStamp() or getValue(time_t*)\n
@@ -141,7 +142,8 @@
  * responses MBUFs are allocated out of msys_1 pool. This may need to be increased if\n
  * you are sending large blocks of data with a low MTU. E.g: 512 bytes with 23 MTU will fail.
  */
-#define CONFIG_BT_NIMBLE_MSYS1_BLOCK_COUNT 24
+// See https://github.com/pac3r/AymStrideLight/issues/4
+#define CONFIG_BT_NIMBLE_MSYS1_BLOCK_COUNT 48
 
 /** @brief Un-comment to use external PSRAM for the NimBLE host */
 // #define CONFIG_BT_NIMBLE_MEM_ALLOC_MODE_EXTERNAL 1
